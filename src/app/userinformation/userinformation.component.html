@@ -1,0 +1,36 @@
+<form [formGroup]="userForm" (ngSubmit)="registerInformation(userForm.value)">
+<div>
+  <input type="text" name="fname" placeholder="First Name" formControlName="fname"/>
+</div>
+<div>
+    <input type="text" name="lname" placeholder="Last Name" formControlName="lname" />
+</div>
+<div>
+    <input type="text" name="address" placeholder="Address" formControlName="address" />
+</div>
+<div>
+    <input type="text" name="city" placeholder="City" formControlName="city" />
+</div>
+<div>
+    <input type="text" name="state" placeholder="State" formControlName="state" />
+</div>
+<div>
+    <input type="text" name="zipcode" placeholder="Zip Code" formControlName="zipcode" />
+</div>
+<div>
+  <button type="submit">Submit</button>
+</div>
+<div>
+    You have entered the following details
+    <ol>
+      <li>{{userForm.value.fname}}</li>
+      <li>{{userForm.value.lname}}</li>
+      <li>{{userForm.value.address}}</li>
+      <li>{{userForm.value.city}}</li>
+      <li>{{userForm.value.state}}</li>
+      <li>{{userForm.value.zipcode}}</li>
+    </ol>
+  </div>
+</form>
+
+
