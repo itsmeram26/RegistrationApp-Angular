@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UserinformationComponent } from './userinformation/userinformation.component';
+import { HTTPService } from 'src/app/service/HTTPService';
 
 @NgModule({
   declarations: [
@@ -14,8 +15,9 @@ import { UserinformationComponent } from './userinformation/userinformation.comp
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HTTPService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

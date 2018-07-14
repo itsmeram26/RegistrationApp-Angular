@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { HTTPService } from 'src/app/service/HTTPService';
 
 @Component({
   selector: 'app-userinformation',
@@ -10,7 +11,7 @@ export class UserinformationComponent implements OnInit {
 
   public userForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private httpClient : HTTPService) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({
@@ -19,7 +20,7 @@ export class UserinformationComponent implements OnInit {
       address: [''],
       city: [''],
       state: [''],
-      zipcode:[''],
+      zipcode:['']
     }); 
   }
 
@@ -28,6 +29,10 @@ export class UserinformationComponent implements OnInit {
   }
   registerInformation(data) {
     console.log(data);
+    this.httpClient.createRegistration(data).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
   }
 
 }
